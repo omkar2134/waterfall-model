@@ -1,0 +1,75 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNidVuDq+UBgiwMcfZf6gdO",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/omkar2134/waterfall-model/blob/main/weather%20modeling\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "Yt_OOPzE5Fbk",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "23d25eb3-6ea7-42b1-abc5-8e6ee044e418"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "enter temperature in *c:22\n",
+            "enter humidity in %:15\n",
+            "enter wind in km/h:20\n",
+            "/nweighter score: 226.00\n",
+            "weather prediction: cloudy\n"
+          ]
+        }
+      ],
+      "source": [
+        "weights ={\n",
+        "    \"t\":0.5,\"h\":0.2,\"w\":0.1\n",
+        "}\n",
+        "temperature = float(input(\"enter temperature in *c:\"))\n",
+        "humidity=float(input(\"enter humidity in %:\"))\n",
+        "wind=float(input(\"enter wind in km/h:\"))\n",
+        "s = (weights[\"t\"]*temperature**2)-(weights[\"h\"]*humidity)+(weights[\"w\"]*wind)-15\n",
+        "\n",
+        "if s>300:\n",
+        "  prediction =\"sunny\"\n",
+        "elif 200<s<=300:\n",
+        "   prediction =\"cloudy\"\n",
+        "elif 100<s<=200:\n",
+        "  prediction =\"rainy\"\n",
+        "else:\n",
+        "    prediction =\"stormy\"\n",
+        "\n",
+        "print(f\"weighter score: {s:.2f}\")\n",
+        "print(f\"weather prediction: {prediction}\")"
+      ]
+    }
+  ]
+}
